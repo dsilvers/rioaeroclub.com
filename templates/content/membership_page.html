@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+
+{% block content %}
+
+<div class="mt-3">&nbsp;</div>
+
+{% for faq in page.membership_faq.all %}
+  <div class="container marketing mt-5">
+    <div class="row featurette">
+      <div class="col-md-7 faq-lead">
+        <h2 class="featurette-heading">{{ faq.question }}</h2>
+        <p class="lead">
+          {{ faq.answer|safe }}
+        </p>
+      </div>
+      <div class="col-md-5">
+        {% image faq.image width-400 class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" %}
+      </div>
+    </div>
+  </div>
+
+  <hr class="featurette-divider">
+{% endfor %}
+
+{% endblock %}

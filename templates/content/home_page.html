@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+
+
+{% block content %}
+
+{% for item in page.home_images.all %}
+  {% if item.image %}
+    {% image item.image width-800 as image_wide %}
+  {% endif %}
+
+  {% if forloop.first %}
+    <div class="mt-5"></div>
+  {% endif %}
+
+  <a href="{{ item.button_link.url }}" class="text-white" style="text-decoration:none">
+    <div class="jumbotron mb-0 p-3 p-md-5 text-white bg-dark" {% if image_wide %}style="background-image:url('{{ image_wide.url }}');"{% endif %}>
+      <div class="col-md-6 px-0">
+
+        {% if item.headline %}
+          <h1 class="display-2">{{ item.headline }}</h1>
+        {% endif %}
+
+        {% if item.blurb %}
+          <p class="lead my-3">{{ item.blurb}}</p>
+        {% endif %}
+
+        <p class="lead mb-0">
+          
+            <button type="button" class="btn btn-primary">
+              {{ item.button_text }}
+            </button>
+          
+        </p>
+
+      </div>
+    </div>
+  </a>
+{% endfor %}
+
+
+{% endblock %}

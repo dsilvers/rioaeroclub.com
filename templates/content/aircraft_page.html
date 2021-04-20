@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+
+
+{% block content %}
+
+  <div class="mt-5">&nbsp;</div>
+
+
+  <div class="container">
+    {{ page.aircraft_details|safe }}
+  </div>
+
+{% for item in page.aircraft_images.all %}
+  <div class="container">
+          {% image item.image width-1200 class="img-fluid mb-3" %}
+  </div>
+{% endfor %}
+
+{% endblock %}
