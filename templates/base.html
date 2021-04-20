@@ -5,8 +5,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>{% block title %}Rio Aero Club - Flying Club - Rio, WI{% endblock %}</title>
+    <meta name="description" content="{{ page.description }}">
+    <title>{% if page.title %}{{ page.title }}{% else %}Rio Aero Club - Flying Club - Rio, WI{% endif %}</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
