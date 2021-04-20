@@ -65,4 +65,5 @@ node_modules/
 staticfiles/
 media/
 
+*.sqlite3
 zappa_settings.json

@@ -28,7 +28,7 @@ class HomePageImages(Orderable):
 
     headline = models.CharField(max_length=250, blank=True)
     blurb = models.CharField(max_length=250, blank=True)
-    button_text = models.CharField(max_length=250)
+    button_text = models.CharField(max_length=250, blank=True)
     alignment_class = models.CharField(max_length=250, default="text-left")
 
     button_link = models.ForeignKey(
@@ -78,7 +78,7 @@ class PancakePage(Page):
     event_details_column2 = RichTextField(blank=True)
     event_details_column3 = RichTextField(blank=True)
 
-    content_panels = [
+    content_panels = Page.content_panels + [
         ImageChooserPanel('hero_image'),
         FieldPanel('hero_text'),
         FieldPanel('hero_subtext'),

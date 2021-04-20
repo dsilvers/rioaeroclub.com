@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin
+Disallow: /cms
+Disallow: /django-admin
+Disallow: /go-away-bad-bots-please-thanks
+
+Sitemap: https://www.rioaeroclub.com/sitemap.xml

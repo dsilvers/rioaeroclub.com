@@ -1,4 +1,4 @@
-{% load menu_tags %}
+{% load static menu_tags %}
 
 <!doctype html>
 <html lang="en">
@@ -8,14 +8,18 @@
     <meta name="description" content="">
     <title>{% block title %}Rio Aero Club - Flying Club - Rio, WI{% endblock %}</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/static/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <link href="/static/css/rio.css" rel="stylesheet">
+    <link href="{% static 'css/rio.css' %}" rel="stylesheet">
+    <style type="text/css">
+    .bg-dark { background-position: center; }
+    .display-2 { font-size: 6.5vh; }
+    </style>
   </head>
   <body>
     <header>

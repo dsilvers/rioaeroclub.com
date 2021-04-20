@@ -24,6 +24,7 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from django.conf import settings
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
@@ -31,6 +32,11 @@ urlpatterns = [
     path('documents/', include(wagtaildocs_urls)),
     path('pages/', include(wagtail_urls)),
     path('admin-django/', admin.site.urls),
+
+    path('robots.txt', TemplateView.as_view(
+        template_name='robots.txt',
+        content_type='text/plain'
+    )),
 
     url('^sitemap\.xml$', sitemap),
 

@@ -26,13 +26,13 @@
           <p class="lead my-3">{{ item.blurb}}</p>
         {% endif %}
 
+        {% if item.button_text %}
         <p class="lead mb-0">
-          
             <button type="button" class="btn btn-primary">
               {{ item.button_text }}
             </button>
-          
         </p>
+        {% endif %}
 
       </div>
     </div>
