@@ -7,3 +7,4 @@ wagtail
 wagtailmenus
 zappa
 psycopg2-binary
+sentry-sdk==1.5.8
