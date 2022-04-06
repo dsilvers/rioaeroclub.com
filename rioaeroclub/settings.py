@@ -63,8 +63,6 @@ INSTALLED_APPS = [
 
     'corsheaders',
     'storages',
-    'django_s3_sqlite',
-    'django_s3_storage',
 
     'content',
 ]
@@ -109,18 +107,20 @@ WSGI_APPLICATION = 'rioaeroclub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#  ./manage.py dumpdata --exclude=auth.permission --exclude=contenttypes --exclude wagtailcore.GroupCollectionPermission  --natural-foreign > backup.json
+
+"""
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': BASE_DIR / 'db.sqlite3',
-    #}
-    "default": {
-        "ENGINE": "django_s3_sqlite",
-        "NAME": env('S3_SQLITE_FILENAME'),
-        "BUCKET": env('S3_SQLITE_BUCKET')
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+"""
 
+DATABASES = {
+    "default": env.db("DATABASE_URL"),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

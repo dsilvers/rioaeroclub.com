@@ -59,7 +59,6 @@ coverage.xml
 #direnv directories
 .direnv/
 .env
-.env.*
 
 node_modules/
 staticfiles/
