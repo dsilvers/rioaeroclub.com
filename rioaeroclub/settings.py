@@ -198,3 +198,7 @@ STATICFILES_STORAGE = 'rioaeroclub.storages.StaticStorage'
 
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'rioaeroclub.storages.MediaStorage'
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+USE_X_FORWARDED_HOST = True
