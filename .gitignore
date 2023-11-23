@@ -58,6 +58,7 @@ coverage.xml
 
 #direnv directories
 .direnv/
+.db/
 .env
 
 node_modules/
@@ -65,6 +66,5 @@ staticfiles/
 media/
 
 *.sqlite3
-zappa_settings.json
 
 static-collected/
