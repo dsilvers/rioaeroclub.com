@@ -3,7 +3,7 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -21,9 +21,9 @@ class Migration(migrations.Migration):
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
                 ('hero_text', models.CharField(blank=True, max_length=250)),
                 ('hero_subtext', models.CharField(blank=True, max_length=250)),
-                ('event_details_column1', wagtail.core.fields.RichTextField(blank=True)),
-                ('event_details_column2', wagtail.core.fields.RichTextField(blank=True)),
-                ('event_details_column3', wagtail.core.fields.RichTextField(blank=True)),
+                ('event_details_column1', wagtail.fields.RichTextField(blank=True)),
+                ('event_details_column2', wagtail.fields.RichTextField(blank=True)),
+                ('event_details_column3', wagtail.fields.RichTextField(blank=True)),
                 ('hero_image', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image')),
             ],
             options={

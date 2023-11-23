@@ -1,10 +1,7 @@
 django-cors-headers
 django-environ
-django-s3-storage
-django-storages
-django==3.2.12
+django
 wagtail
 wagtailmenus
-zappa
-psycopg2-binary
-sentry-sdk==1.5.8
+sentry-sdk
+gunicorn

@@ -34,8 +34,6 @@ DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
-AWS_REGION = env('AWS_DEFAULT_REGION')
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -58,7 +56,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
-    'wagtail.core',
+    'wagtail',
 
     'modelcluster',
     'taggit',
@@ -66,7 +64,7 @@ INSTALLED_APPS = [
     'wagtailmenus',
 
     'corsheaders',
-    'storages',
+    #'storages',
 
     'content',
 ]
@@ -111,18 +109,17 @@ WSGI_APPLICATION = 'rioaeroclub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-"""
 
-DATABASES = {
-    "default": env.db("DATABASE_URL"),
-}
+#DATABASES = {
+#    "default": env.db("DATABASE_URL"),
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -160,14 +157,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-#STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static-collected')
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+
 WAGTAIL_SITE_NAME = 'Rio Aero Club'
+WAGTAILADMIN_BASE_URL = 'https://rioaeroclub.com'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -181,23 +181,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.rioaeroclub.com",
     "http://localhost:8000",
 ]
-
-# Static files on S3
-# Use `manage.py collectstatic` to sync and upload.
-S3_BUCKET_NAME = env('S3_STATIC_FILES_BUCKET')
-AWS_STORAGE_BUCKET_NAME = S3_BUCKET_NAME
-AWS_S3_REGION_NAME = AWS_REGION
-AWS_S3_BUCKET_NAME_STATIC = S3_BUCKET_NAME
-
-STATIC_URL = "https://%s/" % env('AWS_S3_CUSTOM_DOMAIN')
-
-# S3 MEDIA FILES IN SUBDIRECTORIES
-# https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'rioaeroclub.storages.StaticStorage'
-
-MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'rioaeroclub.storages.MediaStorage'
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True

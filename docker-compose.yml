@@ -1,0 +1,16 @@
+
+version: "3.7"
+services:
+  app:
+    user: "${USER_RUN}:${GROUP_RUN}"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: rioaeroclubcom
+    env_file: .env
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+        - "./db.sqlite3:/app/db.sqlite3"
+        - "./media:/app/media"
+        - "./static-collected:/app/static-collected"

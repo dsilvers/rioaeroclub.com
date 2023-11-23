@@ -2,10 +2,9 @@ from django.db import models
 
 from modelcluster.fields import ParentalKey
 
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
-from wagtail.core.fields import RichTextField
-from wagtail.core.models import Page, Orderable
-from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.panels import FieldPanel, InlinePanel
+from wagtail.fields import RichTextField
+from wagtail.models import Page, Orderable
 
 
 """
@@ -51,7 +50,7 @@ class HomePageImages(Orderable):
         FieldPanel('button_text'),
         FieldPanel('button_link'),
         FieldPanel('alignment_class'),
-        ImageChooserPanel('image'),
+        FieldPanel('image'),
     ]
 
 
@@ -79,7 +78,7 @@ class PancakePage(Page):
     event_details_column3 = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        ImageChooserPanel('hero_image'),
+        FieldPanel('hero_image'),
         FieldPanel('hero_text'),
         FieldPanel('hero_subtext'),
         FieldPanel('event_details_column1'),
@@ -103,7 +102,7 @@ class PancakeImage(Orderable):
     )
 
     panels = [
-        ImageChooserPanel('image'),
+        FieldPanel('image'),
     ]
 
 
@@ -141,7 +140,7 @@ class MembershipFAQ(Orderable):
     panels = [
         FieldPanel('question'),
         FieldPanel('answer'),
-        ImageChooserPanel('image'),
+        FieldPanel('image'),
     ]
 
 
@@ -176,7 +175,7 @@ class AircraftImage(Orderable):
     )
 
     panels = [
-        ImageChooserPanel('image'),
+        FieldPanel('image'),
     ]
 
 

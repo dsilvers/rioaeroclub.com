@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-from django.conf.urls import url
 from django.conf.urls.static import static
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.contrib.sitemaps.views import sitemap
-from wagtail.core import urls as wagtail_urls
+from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from django.conf import settings
@@ -30,7 +29,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('cms/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
-    path('pages/', include(wagtail_urls)),
     path('admin-django/', admin.site.urls),
 
     path('robots.txt', TemplateView.as_view(
@@ -38,12 +36,12 @@ urlpatterns = [
         content_type='text/plain'
     )),
 
-    url('^sitemap\.xml$', sitemap),
+    re_path('^sitemap\.xml$', sitemap),
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
-    url(r'', include(wagtail_urls)),
+    re_path(r'', include(wagtail_urls)),
 ]
 
 
