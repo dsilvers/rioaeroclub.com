@@ -64,7 +64,6 @@ INSTALLED_APPS = [
     'wagtailmenus',
 
     'corsheaders',
-    #'storages',
 
     'content',
 ]
@@ -180,9 +179,12 @@ CORS_ALLOWED_ORIGINS = [
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
 USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CSRF_TRUSTED_ORIGINS = [
     'https://www.rioaeroclub.com',
-    'http://localhost',
+    'https://rioaeroclub.com',
+    'http://localhost:8000',
 ]
