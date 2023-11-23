@@ -181,3 +181,8 @@ CORS_ALLOWED_ORIGINS = [
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 USE_X_FORWARDED_HOST = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.rioaeroclub.com',
+    'http://localhost',
+]

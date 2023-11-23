@@ -14,6 +14,7 @@ PORT=9001
 
 DJANGO_SETTINGS_MODULE=rioaeroclub.settings
 DJANGO_SECRET_KEY=''
+DJANGO_ALLOWED_HOSTS='www.rioaeroclub.com'
 ```
 
 ```
