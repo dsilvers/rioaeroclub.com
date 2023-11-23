@@ -11,6 +11,6 @@ services:
     ports:
       - "${PORT}:${PORT}"
     volumes:
-        - "./.db/:/db/"
+        - "./.db/:/app/.db/"
         - "./media:/app/media"
         - "./static-collected:/app/static-collected"
